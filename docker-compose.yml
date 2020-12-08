@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  czadruletapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    image: ${DOCKER_REGISTRY-}czadruletapi
+    build:
+      context: CzadRuletAPI
+      dockerfile: Dockerfile
+  
+  czadruletfrontend:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    image: ${DOCKER_REGISTRY-}czadruletfrontend
+    build:
+      context: CzadRuletFrontend
+      dockerfile: Dockerfile

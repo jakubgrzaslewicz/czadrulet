@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletAPI", "CzadRuletAPI\CzadRuletAPI.csproj", "{D4FCD8A2-D785-4969-9B61-4E99E4A6B0A4}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "CzadRuletAPI.Docker", "CzadRuletAPI\CzadRuletAPI.Docker.dcproj", "{26F6D32C-5769-4564-9FB4-62467387B308}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletFrontend", "CzadRuletFrontend\CzadRuletFrontend.csproj", "{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "CzadRulet.Docker", "CzadRulet.Docker.dcproj", "{26F6D32C-5769-4564-9FB4-62467387B308}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{D4FCD8A2-D785-4969-9B61-4E99E4A6B0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4FCD8A2-D785-4969-9B61-4E99E4A6B0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4FCD8A2-D785-4969-9B61-4E99E4A6B0A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{26F6D32C-5769-4564-9FB4-62467387B308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26F6D32C-5769-4564-9FB4-62467387B308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26F6D32C-5769-4564-9FB4-62467387B308}.Release|Any CPU.ActiveCfg = Release|Any CPU
