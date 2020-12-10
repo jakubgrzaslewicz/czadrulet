@@ -21,7 +21,6 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CzadRuletAPI.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
@@ -40,8 +39,24 @@ namespace CzadRuletAPI.Controllers
             _appSettings = appSettings.Value;
         }
 
+        /// <summary>
+        /// Authenticated user with provided username or email and password. Returns account details and token
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /authenticate
+        ///     {
+        ///        "Username": "cyber",
+        ///        "Password": "punk"
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="model">AuthenticateModel that contains Username and Password or Email and Password</param>
+        /// <returns>Instance of AuthenticatedModel that contains account details and token.</returns>
         [AllowAnonymous]
         [HttpPost("authenticate")]
+        [ProducesResponseType(typeof(AuthenticatedModel), StatusCodes.Status200OK)]
         public IActionResult Authenticate([FromBody] AuthenticateModel model)
         {
             User user = _userService.Authenticate(model.Username, model.Password);
@@ -73,17 +88,17 @@ namespace CzadRuletAPI.Controllers
             var tokenString = tokenHandler.WriteToken(token);
 
             // return basic user info and authentication token
-            return Ok(new
-            {
-                Id = user.Id,
-                Username = user.Username,
-                Email = user.Email,
-                Token = tokenString
-            });
+            return Ok(new AuthenticatedModel(user.Id, user.Username, user.Email, tokenString));
         }
 
+        /// <summary>
+        /// Returns UserModel of currently authenticated account
+        /// </summary>
+        /// <returns>UserModel of currently authenticated account</returns>
+        [Authorize]
         [HttpGet]
         [Description("Returns account details for currently authenticated user")]
+        [ProducesResponseType(typeof(UserModel), StatusCodes.Status200OK)]
         public IActionResult GetOwn()
         {
             var currentId = HttpContext.User.Identity.Name;
@@ -92,21 +107,24 @@ namespace CzadRuletAPI.Controllers
             return Ok(model);
         }
 
+        /// <summary>
+        /// Creates new account with provided details
+        /// </summary>
+        /// <param name="model">RegisterModel describing new account</param>
+        /// <returns>UserModel that represents newly created user account</returns>
         [AllowAnonymous]
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(UserModel), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult Register([FromBody] RegisterModel model)
         {
-            // map model to entity
             var user = _mapper.Map<User>(model);
 
             try
             {
-                // create user
                 _userService.Create(user, model.Password);
                 var userModel = _mapper.Map<UserModel>(user);
-                return Created(nameof(GetOwn),userModel);
+                return Created(nameof(GetOwn), userModel);
             }
             catch (Exception ex)
             {
@@ -115,18 +133,21 @@ namespace CzadRuletAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates account details of currently authenticated user 
+        /// </summary>
+        /// <param name="model"> UpdateModel that will be used to change account fields</param>
+        /// <returns>Code 200 if updated correctly</returns>
+        /// <response code="200">Returns if updated correctly</response>
+        [Authorize]
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        public IActionResult Update(int id, [FromBody] UpdateModel model)
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult Update([FromBody] UpdateModel model)
         {
-            if (HttpContext.User.Identity.Name != id.ToString())
-            {
-                return Forbid("You can't change user details for someone else account.");
-            }
-
             // map model to entity and set id
             var user = _mapper.Map<User>(model);
-            user.Id = id;
+            user.Id = int.Parse(HttpContext.User.Identity.Name);
             try
             {
                 // update user 
