@@ -7,10 +7,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["CzadRuletAPI.csproj", "./"]
-RUN dotnet restore "CzadRuletAPI.csproj"
+COPY ["CzadRuletAPI/CzadRuletAPI.csproj", "CzadRuletAPI/"]
+COPY ["CzadRuletCommons/CzadRuletCommons.csproj", "CzadRuletCommons/"]
+RUN dotnet restore "CzadRuletAPI/CzadRuletAPI.csproj"
 COPY . .
-WORKDIR "/src/"
+WORKDIR "/src/CzadRuletAPI"
 RUN dotnet build "CzadRuletAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

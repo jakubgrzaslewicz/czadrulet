@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>26f6d32c-5769-4564-9fb4-62467387b308</ProjectGuid>
+    <ProjectGuid>5a3296b0-7805-4bc4-b135-e967d1bd3fdd</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>czadruletapi</DockerServiceName>

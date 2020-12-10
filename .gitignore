@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/CzadRuletAPI/Properties/ServiceDependencies/CzadRuletAPI20201210205553/secrets1.arm.json

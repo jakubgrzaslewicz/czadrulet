@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using CzadRuletAPI.Entities;
 using CzadRuletAPI.Helpers;
@@ -13,9 +10,7 @@ using CzadRuletAPI.Models;
 using CzadRuletAPI.Services.WebApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -140,7 +135,7 @@ namespace CzadRuletAPI.Controllers
         /// <returns>Code 200 if updated correctly</returns>
         /// <response code="200">Returns if updated correctly</response>
         [Authorize]
-        [HttpPut("{id}")]
+        [HttpPut]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Update([FromBody] UpdateModel model)

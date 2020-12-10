@@ -1,7 +1,16 @@
 {
   "dependencies": {
     "secrets1": {
-      "type": "secrets.user"
+      "resourceId": null,
+      "type": "secrets.user",
+      "connectionId": null,
+      "secretStore": null
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/czadrulet-db-server/databases/CzadRuletDB_develop",
+      "type": "mssql.azure",
+      "connectionId": "MSSQLDatabase",
+      "secretStore": "LocalSecretsFile"
     }
   }
 }
