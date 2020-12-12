@@ -11,5 +11,6 @@ namespace CzadRuletCommon.HubFields
         public static string UserJoined = "UserJoined";
         public static string ReceiveMessage = "ReceiveMessage";
         public static string NotInRoom = "NotInRoom";
+        public static string YouHaveJoined = "YouHaveJoined";
     }
 }

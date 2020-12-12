@@ -83,9 +83,11 @@ namespace CzadRuletAPI
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:5000",
-                            "https://localhost:5001",
-                            "https://czadruletfrontend20201210204825.azurewebsites.net")
+                        builder.WithOrigins(
+                                "http://localhost:5003",
+                            "https://localhost:5002",
+                            "https://czadruletfrontend20201210204825.azurewebsites.net"
+                                )
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials();

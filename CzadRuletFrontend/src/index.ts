@@ -8,7 +8,7 @@ const btnStart: HTMLButtonElement = document.querySelector("#btnStart");
 const username = new Date().getTime();
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://czadruletapi20201210205553.azurewebsites.net/TwoPersonChatHub")
+    .withUrl("https://localhost:5001/TwoPersonChatHub")
     .withAutomaticReconnect()
     .build();
 
@@ -18,6 +18,40 @@ connection.on("ReceiveMessage",
 
         m.innerHTML =
             `<div class="message-author">${username}</div><div>${message}</div>`;
+
+        divMessages.appendChild(m);
+        divMessages.scrollTop = divMessages.scrollHeight;
+    });
+
+connection.on("UserJoined",
+    () => {
+        let m = document.createElement("div");
+
+        m.innerHTML =
+            `<div>Anonymous user joined your room. Say hello!</div>`;
+
+        divMessages.appendChild(m);
+        divMessages.scrollTop = divMessages.scrollHeight;
+    });
+
+connection.on("UserLeft",
+    () => {
+        let m = document.createElement("div");
+
+        m.innerHTML =
+            `<div>Your partner left the room.</div>`;
+
+        divMessages.appendChild(m);
+        divMessages.scrollTop = divMessages.scrollHeight;
+    });
+
+connection.on("YouHaveJoined",
+    (currentUsersCount: number) => {
+        let m = document.createElement("div");
+        if (currentUsersCount === 2)
+            m.innerHTML = `<div>You have joined a room. Say hello to another user!</div>`;
+        else
+            m.innerHTML = `<div>You have joined an empty room. Wait for someone to join!</div>`;
 
         divMessages.appendChild(m);
         divMessages.scrollTop = divMessages.scrollHeight;
@@ -37,7 +71,9 @@ btnStart.addEventListener("click", startChat);
 
 function startChat() {
     connection.invoke('OpenChatRoom');
+    divMessages.innerHTML = '';
 }
+
 function send() {
-    connection.invoke('SendMessage', "test", "Witoj");
+    connection.invoke('SendMessage', "USERNAME", "Witoj");
 }
