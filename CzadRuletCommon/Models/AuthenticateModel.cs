@@ -8,6 +8,12 @@ namespace CzadRuletCommon.Models
 {
     public class AuthenticateModel
     {
+        public AuthenticateModel(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
         [Required]
         public string Username { get; set; }
 
