@@ -1,4 +1,4 @@
-﻿using CzadRuletMobile.Services;
+﻿
 using CzadRuletMobile.Views;
 using System;
 using Xamarin.Forms;
@@ -12,8 +12,6 @@ namespace CzadRuletMobile
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

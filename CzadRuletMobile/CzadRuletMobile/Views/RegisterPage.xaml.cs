@@ -11,25 +11,27 @@ using Xamarin.Forms.Xaml;
 namespace CzadRuletMobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class RegisterPage : ContentPage
     {
-        public LoginPage()
+        public RegisterPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
-        }
-
-
-        private async void OnLoginClicked(object sender, EventArgs e)
-        {
-            string username = _entryUser.Text;
-            string password = _entryPassword.Text;
-            DisplayAlert("Uwaga", UserService.login(username, password), "OK");
-            await Shell.Current.GoToAsync("//ProfilePage");
+            this.BindingContext = new RegisterViewModel();
         }
 
         private async void OnBackClicked(object sender, EventArgs e)
         {
+            await Shell.Current.GoToAsync("//ProfilePage");
+        }
+
+
+        private async void OnRegisterClicked(object sender, EventArgs e)
+        {
+            string username = _entryUsername.Text;
+            string password = _entryPassword.Text;
+            string email = _entryEmail.Text;
+
+            DisplayAlert("Uwaga", UserService.register(username, password, email), "OK");
             await Shell.Current.GoToAsync("//ProfilePage");
         }
     }

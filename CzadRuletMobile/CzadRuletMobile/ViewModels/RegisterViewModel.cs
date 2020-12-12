@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace CzadRuletMobile.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         public Command LoginCommand { get; }
 
-        public LoginViewModel()
+        public RegisterViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
         }

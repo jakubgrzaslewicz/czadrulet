@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CzadRuletMobile.Views.ProfilePage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:CzadRuletMobile.ViewModels"
+             xmlns:model="clr-namespace:CzadRuletMobile.Models"
+             x:Name="BrowseItemsPage">
+
+    <!-- <ContentPage.ToolbarItems> -->
+    <!--     <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" /> -->
+    <!-- </ContentPage.ToolbarItems> -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainAccent">#4C727D</Color>
+            <Color x:Key="ThemeWave">#E9FAFF</Color>
+            <Color x:Key="LightAccent">#9AE6FD</Color>
+            <Color x:Key="DarkAccent">#B7C5C9</Color>
+            <Color x:Key="Breakout">#FDACA7</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <StackLayout Orientation="Vertical" Padding="30,50,30,24" Spacing="10"
+                         BackgroundColor="{StaticResource ThemeWave}">
+                <Label Padding="0,0,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontSize="24" Text="Nie jesteś zalogowany" FontAttributes="Bold" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Text="Zaloguj się"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="OnLoginClicked"
+                        TextColor="White"
+                        Margin="0,30,0,20"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                <Label FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       Text="Nie masz konta? Zarejestruj się!" Margin="0,100,0,20" />
+                <Button FontSize="14" Text="Rejestracja" Clicked="OnRegisterClicked"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Center" />
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

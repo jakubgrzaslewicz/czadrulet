@@ -7,12 +7,15 @@ namespace CzadRuletCommon.Models
 {
     public class AuthenticatedModel
     {
-        public AuthenticatedModel(int id, string username, string email, string token)
+        public AuthenticatedModel()
         {
-            Id = id;
-            Username = username;
-            Email = email;
-            Token = token;
+        }
+        public AuthenticatedModel(int Id, string Username, string Email, string Token)
+        {
+            this.Id = Id;
+            this.Username = Username;
+            this.Email = Email;
+            this.Token = Token;
         }
 
         public int Id { get; set; }
