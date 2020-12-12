@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CzadRuletAPI.Entities;
-using CzadRuletAPI.Models;
+using CzadRuletCommons.Models;
 
 namespace CzadRuletAPI.Mappers
 {
