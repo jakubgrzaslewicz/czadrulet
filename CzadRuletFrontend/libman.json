@@ -10,7 +10,7 @@
         "jquery.min.js",
         "jquery.min.map"
       ]
-    },
+    }, 
     {
       "provider": "unpkg",
       "library": "bootstrap@4.5.3",
