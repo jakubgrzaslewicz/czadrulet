@@ -86,7 +86,7 @@ namespace CzadRuletAPI
                         builder.WithOrigins(
                                 "http://localhost:5003",
                             "https://localhost:5002",
-                            "https://czadruletfrontend20201210204825.azurewebsites.net"
+                            "https://czadrulet.1000101.org"
                                 )
                             .AllowAnyHeader()
                             .AllowAnyMethod()

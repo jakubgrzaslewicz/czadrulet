@@ -8,7 +8,7 @@ const btnStart: HTMLButtonElement = document.querySelector("#btnStart");
 const username = new Date().getTime();
 
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:5001/TwoPersonChatHub")
+    .withUrl("https://czadruletapi20201210205553.azurewebsites.net/TwoPersonChatHub")
     .withAutomaticReconnect()
     .build();
 

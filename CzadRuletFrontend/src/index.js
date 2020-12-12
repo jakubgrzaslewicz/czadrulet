@@ -8,7 +8,7 @@ var btnSend = document.querySelector("#btnSend");
 var btnStart = document.querySelector("#btnStart");
 var username = new Date().getTime();
 var connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:5001/TwoPersonChatHub")
+    .withUrl("https://czadruletapi20201210205553.azurewebsites.net/TwoPersonChatHub")
     .withAutomaticReconnect()
     .build();
 connection.on("ReceiveMessage", function (username, message) {
