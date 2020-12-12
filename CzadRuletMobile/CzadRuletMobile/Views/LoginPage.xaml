@@ -7,8 +7,15 @@
              x:Class="CzadRuletMobile.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+
+        <StackLayout Padding="30,200,30,00" VerticalOptions="Center">
+            <Entry x:Name="_entryUser" TextColor="Black" Placeholder="user" HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+            <Entry x:Name="_entryPassword" TextColor="Black" Placeholder="password" IsPassword="True" HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+            <Button VerticalOptions="Center" Text="Login" Margin="0,30,0,0" Clicked="OnLoginClicked" />
+            <Button VerticalOptions="Center" Text="Cofnij" Margin="0,150,0,0" Clicked="OnBackClicked" />
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

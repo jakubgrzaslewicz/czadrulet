@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CzadRuletMobile.Views.ChatPage"
+             xmlns:vm="clr-namespace:CzadRuletMobile.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:ChatViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="MainAccent">#4C727D</Color>
+            <Color x:Key="ThemeWave">#E9FAFF</Color>
+            <Color x:Key="LightAccent">#9AE6FD</Color>
+            <Color x:Key="DarkAccent">#B7C5C9</Color>
+            <Color x:Key="Breakout">#FDACA7</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ScrollView Grid.Row="0">
+            <StackLayout x:Name="_messageField" Orientation="Vertical" Padding="30,24,30,24" Spacing="10"
+                         BackgroundColor="{StaticResource ThemeWave}">
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout Grid.Row="1" BackgroundColor="{StaticResource ThemeWave}" VerticalOptions="FillAndExpand"
+                     HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                         Padding="10,8,10,30">
+                <Entry TextColor="Beige" Placeholder="Wpisz wiadomość" HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" BackgroundColor="{StaticResource ThemeWave}" VerticalOptions="FillAndExpand"
+                     HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button Text="Rozłącz"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        Margin="0,0,50,20"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Center" />
+
+                <Button Text="Losuj"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        Margin="50,0,0,20"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Center" 
+                        Clicked="OnRandomClicked" />
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
