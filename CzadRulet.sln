@@ -7,15 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletAPI", "CzadRuletAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletFrontend", "CzadRuletFrontend\CzadRuletFrontend.csproj", "{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletCommons", "CzadRuletCommons\CzadRuletCommons.csproj", "{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5A3296B0-7805-4BC4-B135-E967D1BD3FDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CzadRuletMobile.Android", "CzadRuletMobile\CzadRuletMobile.Android\CzadRuletMobile.Android.csproj", "{5D19DD72-66C2-4B91-A47F-E6B065CC6E62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CzadRuletMobile.iOS", "CzadRuletMobile\CzadRuletMobile.iOS\CzadRuletMobile.iOS.csproj", "{C5AC1FE3-5417-488C-A103-FE4C0D07AA83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CzadRuletMobile", "CzadRuletMobile\CzadRuletMobile\CzadRuletMobile.csproj", "{2C07173C-DD4D-4FFD-A025-E4B8C03B4414}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CzadRuletMobile", "CzadRuletMobile\CzadRuletMobile\CzadRuletMobile.csproj", "{2C07173C-DD4D-4FFD-A025-E4B8C03B4414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CzadRuletCommon", "CzadRuletCommon\CzadRuletCommon.csproj", "{6D431078-158E-4A23-859E-51A2E4271410}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,18 +51,6 @@ Global
 		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Release|iPhone.Build.0 = Release|Any CPU
 		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{CCA8795E-1A88-47F9-B7B5-99A88557FD3C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|iPhone.Build.0 = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{6C3A2AB8-D18A-48CD-BCDB-9CCF3BC12484}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{5A3296B0-7805-4BC4-B135-E967D1BD3FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A3296B0-7805-4BC4-B135-E967D1BD3FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A3296B0-7805-4BC4-B135-E967D1BD3FDD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
@@ -115,6 +103,18 @@ Global
 		{2C07173C-DD4D-4FFD-A025-E4B8C03B4414}.Release|iPhone.Build.0 = Release|Any CPU
 		{2C07173C-DD4D-4FFD-A025-E4B8C03B4414}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{2C07173C-DD4D-4FFD-A025-E4B8C03B4414}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|iPhone.Build.0 = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{6D431078-158E-4A23-859E-51A2E4271410}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

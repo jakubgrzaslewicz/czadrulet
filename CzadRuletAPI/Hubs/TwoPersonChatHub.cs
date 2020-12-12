@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using CzadRuletCommons.HubFields;
+using CzadRuletCommon.HubFields;
 using Microsoft.AspNetCore.SignalR;
 
 namespace CzadRuletAPI.Hubs

@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CzadRuletCommons\CzadRuletCommons.csproj" />
+    <ProjectReference Include="..\CzadRuletCommon\CzadRuletCommon.csproj" />
   </ItemGroup>
 
 </Project>

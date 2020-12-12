@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CzadRuletCommons.HubFields
+namespace CzadRuletCommon.HubFields
 {
     public static class TwoPersonChatHubFields
     {

@@ -6,7 +6,7 @@ using System.Text;
 using AutoMapper;
 using CzadRuletAPI.Entities;
 using CzadRuletAPI.Helpers;
-using CzadRuletCommons.Models;
+using CzadRuletCommon.Models;
 using CzadRuletAPI.Services.WebApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
