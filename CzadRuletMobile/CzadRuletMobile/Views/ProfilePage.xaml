@@ -5,8 +5,7 @@
              x:Class="CzadRuletMobile.Views.ProfilePage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:CzadRuletMobile.ViewModels"
-             xmlns:model="clr-namespace:CzadRuletMobile.Models"
-             x:Name="BrowseItemsPage">
+             x:Name="_profilePage">
 
     <!-- <ContentPage.ToolbarItems> -->
     <!--     <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" /> -->
@@ -22,16 +21,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <ScrollView Grid.Row="0">
-            <StackLayout Orientation="Vertical" Padding="30,50,30,24" Spacing="10"
+        <StackLayout x:Name="_profileLayout">
+            <!-- wylogowany -->
+            <StackLayout x:Name="_unloggedLayout" Orientation="Vertical" Padding="30,50,30,24" Spacing="10"
                          BackgroundColor="{StaticResource ThemeWave}">
                 <Label Padding="0,0,0,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
                     <Label.FormattedText>
@@ -44,19 +37,89 @@
                 </Label>
                 <Button Text="Zaloguj się"
                         BackgroundColor="{StaticResource Primary}"
-                        Clicked="OnLoginClicked"
+                        Clicked="OnProfileLoginClicked"
                         TextColor="White"
                         Margin="0,30,0,20"
                         VerticalOptions="Center"
                         HorizontalOptions="Center" />
-
                 <Label FontSize="16" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        Text="Nie masz konta? Zarejestruj się!" Margin="0,100,0,20" />
-                <Button FontSize="14" Text="Rejestracja" Clicked="OnRegisterClicked"
+                <Button FontSize="14" Text="Rejestracja" Clicked="OnProfileRegisterClicked"
                         VerticalOptions="CenterAndExpand"
                         HorizontalOptions="Center" />
             </StackLayout>
-        </ScrollView>
 
+            <!-- zalogowany -->
+            <StackLayout x:Name="_loggedLayout" IsVisible="False" Padding="30,10">
+                <Label FontSize="16" VerticalTextAlignment="Center"
+                       Text="Nazwa użytkownika:" Margin="0,20,0,0" />
+                <Label x:Name="_username" Text="User" FontSize="16" FontAttributes="Bold" />
+
+                <Label FontSize="16" VerticalTextAlignment="Center"
+                       Text="Adres email:" Margin="0,20,0,0" />
+                <Label x:Name="_email" Text="User" FontSize="16" FontAttributes="Bold" />
+
+                <Label FontSize="16" VerticalTextAlignment="Center"
+                       Text="Fotka:" Margin="0,20,0,0" />
+
+                <Image x:Name="_imgPhoto" />
+
+                <Button VerticalOptions="Center" Text="Edytuj hasło" Margin="0,30,0,0"
+                        Clicked="OnProfileEditPasswordClicked" />
+                <Button VerticalOptions="Center" Text="Edytuj fotkę" Margin="0,20,0,0"
+                        Clicked="OnProfileEditPhotoClicked" />
+                <Button VerticalOptions="Center" Text="Wyloguj" Margin="0,20,0,0" Clicked="OnLogoutClicked" />
+            </StackLayout>
+
+            <!-- ekran logowania -->
+            <StackLayout x:Name="_loginLayout" IsVisible="False" Padding="30,200,30,00" VerticalOptions="Center">
+                <Entry x:Name="_entryLoginUser" TextColor="Black" Placeholder="user" HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Entry x:Name="_entryLoginPassword" TextColor="Black" Placeholder="password" IsPassword="True"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Button VerticalOptions="Center" Text="Login" Margin="0,30,0,0" Clicked="OnLoginClicked" />
+                <Button VerticalOptions="Center" Text="Cofnij" Margin="0,100,0,0" Clicked="OnBackClicked" />
+            </StackLayout>
+
+            <!-- ekran rejestracji -->
+            <StackLayout x:Name="_registerLayout" IsVisible="False" Padding="30,150,30,00" VerticalOptions="Center">
+                <Entry x:Name="_entryRegisterEmail" TextColor="Black" Placeholder="user@domain.com"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Entry x:Name="_entryRegisterUsername" TextColor="Black" Placeholder="user"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Entry x:Name="_entryRegisterPassword" TextColor="Black" Placeholder="password" IsPassword="True"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Button VerticalOptions="Center" Text="Rejestruj" Margin="0,30,0,0" Clicked="OnRegisterClicked" />
+                <Button VerticalOptions="Center" Text="Cofnij" Margin="0,80,0,0" Clicked="OnBackClicked" />
+            </StackLayout>
+
+            <!-- edycja hasła -->
+            <StackLayout x:Name="_editPasswordLayout" IsVisible="False" Padding="30,150,30,00" VerticalOptions="Center">
+                <Entry x:Name="_entryEditPassword" TextColor="Black" Placeholder="password" IsPassword="True"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Entry x:Name="_entryEditPasswordRepeat" TextColor="Black" Placeholder="repeat password"
+                       IsPassword="True"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" Margin="0,15,0,0" />
+                <Button VerticalOptions="Center" Text="Edytuj" Margin="0,30,0,0" Clicked="OnEditPasswordClicked" />
+                <Button VerticalOptions="Center" Text="Cofnij" Margin="0,150,0,0" Clicked="OnBackClicked" />
+            </StackLayout>
+
+            <!-- edycja zdjęcia -->
+            <StackLayout Padding="30,100,30,00"
+                         VerticalOptions="Center" x:Name="_editPhotoLayout" IsVisible="False">
+                <Image x:Name="_imgTakenPhoto" />
+                <Button VerticalOptions="Center" Text="Zrób zdjęcie" Margin="0,30,0,0" x:Name="OnTakePhotoClicked" />
+                <Button VerticalOptions="Center" Text="Zapisz" Margin="0,20,0,0" Clicked="OnSavePhotoClicked" />
+                <Button VerticalOptions="Center" Text="Cofnij" Margin="0,20,0,0" Clicked="OnBackClicked" />
+            </StackLayout>
+
+
+        </StackLayout>
     </Grid>
 </ContentPage>
