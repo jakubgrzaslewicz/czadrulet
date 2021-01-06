@@ -1,11 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var loggedIn = (bool)ViewData["LoggedIn"];
+    var userName = (string)ViewData["UserName"];
 }
-<button id="btnStart">Start chat</button>
-<div id="divMessages" class="messages">
-</div>
-<div class="input-zone">
-    <label id="lblMessage" for="tbMessage">Message:</label>
-    <input id="tbMessage" class="input-zone-input" type="text"/>
-    <button id="btnSend">Send</button>
-</div>
+
+
+
+@if (loggedIn)
+{
+    @section NavOption
+{
+        <li class="nav-item ml-auto">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="LogOut">Logout <b>@userName</b></a>
+        </li>
+    }
+    <button id="btnStart" type="button" class="btn btn-primary">Start chat</button>
+    <div id="divMessages" class="messages">
+    </div>
+    <div class="input-zone">
+        <input id="tbMessage" type="text" class="form-control" placeholder="Type your message here">
+        <button id="btnSend" type="button" class="btn btn-info">Send</button>
+        <input name="UserName" id="UserName" type="hidden" value=@userName>
+    </div>
+
+}
+else
+{
+    @section NavOption
+{
+        <li class="nav-item ml-auto">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+        </li>
+    }
+    <p>Zaloguj się aby rozpocząć czat. <a href="/Home/Login">Logowanie</a></p>
+}
+@section Scripts{
+    <script src="~/webpack/js/index.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    var err = (string) ViewData["err"];
+
+}
+
+@section NavOption
+{
+    <li class="nav-item ml-auto">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        @{
+            if (ViewData["err"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @err
+                </div>
+            }
+        }
+
+        <form class="validate-form" method="POST">
+            <div class="form-group">
+                <input name="email" id="email" type="text" class="form-control" placeholder="Email/Login" required>
+            </div>
+            <div class="form-group">
+                <input name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
+            </div>
+            <input type="submit" class="btn btn-success btn-block" id="btnLogIn" value="Log in"/>
+        </form>
+        <p>
+            <a asp-area="" asp-controller="Home" asp-action="Registration">Register</a>
+        </p>
+    </div>
+    <div class="col-lg-4"></div>
+</div>
+
+@section Scripts{
+    <script src="~/webpack/js/login.js" asp-append-version="true"></script>
+}

@@ -3,7 +3,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
-    entry: "./src/index.ts",
+    entry: {
+        'index': "./src/index.ts",
+        'login': "./src/login.ts",
+        'registration': "./src/registration.ts"
+    },
     output: {
         path: path.resolve(__dirname, "wwwroot/webpack"),
         filename: "js/[name].js",
@@ -27,7 +31,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "css/[name].css"
+            filename: "css/main.css"
         })
     ]
 };
