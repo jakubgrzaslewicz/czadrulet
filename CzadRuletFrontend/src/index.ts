@@ -5,7 +5,7 @@ const divMessages: HTMLDivElement = document.querySelector("#divMessages");
 const tbMessage: HTMLInputElement = document.querySelector("#tbMessage");
 const btnSend: HTMLButtonElement = document.querySelector("#btnSend");
 const btnStart: HTMLButtonElement = document.querySelector("#btnStart");
-const username = new Date().getTime();
+const UserName: HTMLInputElement = document.querySelector("#UserName");
 
 const connection = new signalR.HubConnectionBuilder()
     .withUrl("https://czadruletapi20201210205553.azurewebsites.net/TwoPersonChatHub")
@@ -16,9 +16,10 @@ connection.on("ReceiveMessage",
     (username: string, message: string) => {
         let m = document.createElement("div");
 
-        m.innerHTML =
-            `<div class="message-author">${username}</div><div>${message}</div>`;
-
+        m.innerHTML = 
+            `<div class="message">
+                <strong>${username}: </strong>${message}
+             </div>`;
         divMessages.appendChild(m);
         divMessages.scrollTop = divMessages.scrollHeight;
     });
@@ -75,5 +76,6 @@ function startChat() {
 }
 
 function send() {
-    connection.invoke('SendMessage', "USERNAME", "Witoj");
+    connection.invoke('SendMessage', UserName.value, tbMessage.value);
+    tbMessage.value = "";
 }
