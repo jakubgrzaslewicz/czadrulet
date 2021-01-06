@@ -10,6 +10,7 @@ namespace CzadRuletMobile
     {
         public AppShell()
         {
+            //Routing.RegisterRoute("ProfilePage", typeof(ProfilePage));
             InitializeComponent();
         }
 

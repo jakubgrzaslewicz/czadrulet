@@ -28,19 +28,29 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ScrollView Grid.Row="0">
+        <ScrollView x:Name="_scrollMessageField" Grid.Row="0">
             <StackLayout x:Name="_messageField" Orientation="Vertical" Padding="30,24,30,24" Spacing="10"
-                         BackgroundColor="{StaticResource ThemeWave}">
-            </StackLayout>
+                         BackgroundColor="{StaticResource ThemeWave}" />
         </ScrollView>
 
         <StackLayout Grid.Row="1" BackgroundColor="{StaticResource ThemeWave}" VerticalOptions="FillAndExpand"
                      HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                         Padding="10,8,10,30">
-                <Entry TextColor="Beige" Placeholder="Wpisz wiadomość" HorizontalOptions="FillAndExpand"
-                       VerticalOptions="FillAndExpand" />
-            </StackLayout>
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  Padding="10,8,10,30">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+
+                <Entry TextColor="Black" Placeholder="Wpisz wiadomość" HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand" x:Name="_entryMessage" />
+                <Button x:Name="_btnSend" Text=">" Grid.Column="1"
+                        FontSize="25"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" Clicked="OnClickedSend" />
+            </Grid>
         </StackLayout>
 
         <StackLayout Grid.Row="2" BackgroundColor="{StaticResource ThemeWave}" VerticalOptions="FillAndExpand"
@@ -51,14 +61,16 @@
                         TextColor="White"
                         Margin="0,0,50,20"
                         VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Center" />
+                        HorizontalOptions="Center" 
+                        Clicked="OnDisconnectClicked"
+                        />
 
                 <Button Text="Losuj"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White"
                         Margin="50,0,0,20"
                         VerticalOptions="CenterAndExpand"
-                        HorizontalOptions="Center" 
+                        HorizontalOptions="Center"
                         Clicked="OnRandomClicked" />
             </StackLayout>
         </StackLayout>
